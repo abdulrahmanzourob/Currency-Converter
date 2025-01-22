@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+      /* إعدادات عامة */
+      body {
+        font-family: "Roboto", Arial, sans-serif;
+        background: linear-gradient(135deg, #003366, #004c99);
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        backdrop-filter: blur(5px);
+      }
+
+      /* الحاوية الرئيسية */
+      .container {
+        width: 90%;
+        max-width: 500px;
+        background-color: rgba(31, 31, 31, 0.9);
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      }
+
+      /* الرأس */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .header h1 {
+        font-size: 6vw;
+        margin: 0;
+        color: #0077ff;
+      }
+
+      .header .fa-coins {
+        font-size: 24px;
+        color: #0077ff;
+      }
+
+      /* الفورم */
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .input {
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        background-color: #292929;
+        color: #fff;
+        font-size: 16px;
+        transition: all 0.3s;
+      }
+
+      .input:focus {
+        outline: none;
+        box-shadow: 0 0 5px #0077ff;
+      }
+
+      .convert {
+        padding: 12px 15px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        background-color: #0077ff;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .convert:hover {
+        background-color: #0056b3;
+      }
+
+      .result {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #292929;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      /* استعلامات الوسائط */
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 5vw;
+        }
+
+        .input {
+          font-size: 14px;
+        }
+
+        .convert {
+          font-size: 14px;
+          padding: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .convert {
+          width: 100%;
+        }
+      }
+
+      /* حركات */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Currency Converter</h1>
+        <i class="fas fa-coins"></i>
+      </div>
+      <div class="form">
+        <input
+          class="input amount"
+          placeholder="Enter amount..."
+        />
+        <select class="input from-currency">
+          <option value="USD">USD - US Dollar</option>
+          <option value="EUR">EUR - Euro</option>
+          <option value="GBP">GBP - British Pound</option>
+          <option value="JPY">JPY - Japanese Yen</option>
+          <option value="CHF">CHF - Swiss Franc</option>
+          <option value="SAR">SAR - Saudi Riyal</option>
+          <option value="AUD">AUD - Australian Dollar</option>
+          <option value="CAD">CAD - Canadian Dollar</option>
+          <option value="INR">INR - Indian Rupee</option>
+          <option value="EGP">EGP - Egyptian Pound</option> <!-- الجنيه المصري -->
+          <option value="AED">AED - UAE Dirham</option> <!-- الدرهم الإماراتي -->
+          <option value="KWD">KWD - Kuwaiti Dinar</option> <!-- الدينار الكويتي -->
+          <option value="QAR">QAR - Qatari Riyal</option> <!-- الريال القطري -->
+          <option value="BHD">BHD - Bahraini Dinar</option> <!-- الدينار البحريني -->
+          <option value="OMR">OMR - Omani Rial</option> <!-- الريال العماني -->
+          <option value="JOD">JOD - Jordanian Dinar</option> <!-- الدينار الأردني -->
+          <option value="LBP">LBP - Lebanese Pound</option> <!-- الليرة اللبنانية -->
+          <option value="DZD">DZD - Algerian Dinar</option> <!-- الدينار الجزائري -->
+          <option value="TND">TND - Tunisian Dinar</option> <!-- الدينار التونسي -->
+          <option value="MAD">MAD - Moroccan Dirham</option> <!-- الدرهم المغربي -->
+        </select>
+        
+        <select class="input to-currency">
+          <option value="USD">USD - US Dollar</option>
+          <option value="EUR">EUR - Euro</option>
+          <option value="GBP">GBP - British Pound</option>
+          <option value="JPY">JPY - Japanese Yen</option>
+          <option value="CHF">CHF - Swiss Franc</option>
+          <option value="SAR">SAR - Saudi Riyal</option>
+          <option value="AUD">AUD - Australian Dollar</option>
+          <option value="CAD">CAD - Canadian Dollar</option>
+          <option value="INR">INR - Indian Rupee</option>
+          <option value="EGP">EGP - Egyptian Pound</option> <!-- الجنيه المصري -->
+          <option value="AED">AED - UAE Dirham</option> <!-- الدرهم الإماراتي -->
+          <option value="KWD">KWD - Kuwaiti Dinar</option> <!-- الدينار الكويتي -->
+          <option value="QAR">QAR - Qatari Riyal</option> <!-- الريال القطري -->
+          <option value="BHD">BHD - Bahraini Dinar</option> <!-- الدينار البحريني -->
+          <option value="OMR">OMR - Omani Rial</option> <!-- الريال العماني -->
+          <option value="JOD">JOD - Jordanian Dinar</option> <!-- الدينار الأردني -->
+          <option value="LBP">LBP - Lebanese Pound</option> <!-- الليرة اللبنانية -->
+          <option value="DZD">DZD - Algerian Dinar</option> <!-- الدينار الجزائري -->
+          <option value="TND">TND - Tunisian Dinar</option> <!-- الدينار التونسي -->
+          <option value="MAD">MAD - Moroccan Dirham</option> <!-- الدرهم المغربي -->
+        </select>
+        
+        <input type="button" class="convert" value="Convert" />
+      </div>
+      <div class="result" style="display: none;">Conversion result will appear here</div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
