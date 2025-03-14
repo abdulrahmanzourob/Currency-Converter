@@ -12,7 +12,7 @@ async function convertCurrency() {
     return;
   }
 
-  const apiKey = "986ce212ea2b4672a33434c850a933e6"; // استبدل هذا المفتاح بمفتاحك الخاص
+  const apiKey = "986ce212ea2b4672a33434c850a933e6";
   const apiUrl = `https://api.currencyfreaks.com/v2.0/rates/latest?apikey=${apiKey}`;
 
   try {
